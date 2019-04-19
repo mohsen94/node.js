@@ -12,4 +12,4 @@ Step 2: type 'node [HelloWorld.js](https://github.com/mohsen94/node.js/blob/mast
 Step 3: type in browser "http://localhost:8000/"
 
 # OUTPUT
-![GitHub Logo](/output.png)
+![Screenshot](output.PNG)
