@@ -8,3 +8,8 @@ Node.js is a server-side version of JavaScript. That means all the things all th
 Step 1: open terminal 
 
 Step 2: type 'node [HelloWorld.js](https://github.com/mohsen94/node.js/blob/master/HelloWorld.js)'
+
+Step 3: type in browser "http://localhost:8000/"
+
+# OUTPUT
+![GitHub Logo](/output.png)
