@@ -17,4 +17,5 @@ Step 3: type in browser "http://localhost:8000/"
 
 # How to send mail
 First you have to install nodemailer by typing "npm install nodemailer" in your terminal then run the below script
+
 [mail.js](https://github.com/mohsen94/node.js/blob/master/mail.js)
