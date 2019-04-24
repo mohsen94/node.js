@@ -1,42 +1,26 @@
 // install nodemailer , write "npm install nodemailer" in your terminal
 
+var nodemailer = require('nodemailer');
 
-"use strict";
-const nodemailer = require("nodemailer");
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'youremail@gmail.com',
+    pass: 'yourpassword'
+  }
+});
 
-// async..await is not allowed in global scope, must use a wrapper
-async function main(){
+var mailOptions = {
+  from: 'youremail@gmail.com',
+  to: 'sir@yahoo.com',
+  subject: 'Sending Email using Node.js ',
+  text: 'Dear Sir, A lot of the confusion for newcomers to Node is misunderstanding exactly what it is? An important thing to realize is that Node is not a webserver. By itself it doesn’t do anything. It doesn’t work like Apache. There is no config file where you point it to you HTML files. If you want it to be a HTTP server, you have to write an HTTP server (with the help of its built-in libraries). Node.js is just another way to execute code on your computer. It is simply a JavaScript runtime.Installing Node.'
+};
 
-  // Generate test SMTP service account from ethereal.email
-  // Only needed if you don't have a real mail account for testing
-  let testAccount = await nodemailer.createTestAccount();
-
-  // create reusable transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: testAccount.user, // generated ethereal user
-      pass: testAccount.pass // generated ethereal password
-    }
-  });
-
-  // send mail with defined transport object
-  let info = await transporter.sendMail({
-    from: '"Fred Foo 👻" <foo@example.com>', // sender address
-    to: "Sir@example.com, baz@example.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello Sir,", // plain text body
-    html: "<b>Hello Sir, </b>" // html body
-  });
-
-  console.log("Message sent: %s", info.messageId);
-  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-  // Preview only available when sending through an Ethereal account
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-}
-
-main().catch(console.error);
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});
