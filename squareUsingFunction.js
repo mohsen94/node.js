@@ -16,3 +16,5 @@ function factorial(num) {
 }
 
 console.log(squared(2));
+console.log(cubed(2));
+console.log(factorial(2));
