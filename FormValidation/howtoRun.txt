@@ -1,0 +1,1 @@
+Extract FormValidation.zip file then run app.js file in terminal.
